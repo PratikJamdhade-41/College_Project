@@ -1,0 +1,410 @@
+/* ===============================
+   1. GLOBAL COLOR VARIABLES
+================================ */
+:root {
+    --primary: #1e3a8a;
+    /* Deep academic blue */
+    --secondary: #3b82f6;
+    /* Light blue */
+    --accent: #f59e0b;
+    /* Gold highlight */
+
+    --bg-light: #f8fafc;
+    --text-dark: #1f2933;
+    --text-muted: #6b7280;
+
+    --white: #ffffff;
+    --footer-dark: #0f172a;
+}
+
+/* ===============================
+   2. GENERAL RESET
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* ===============================
+   3. NAVBAR
+================================ */
+.top-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+    color: white;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    background: rgba(30, 58, 138, 0.95);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-nav.scrolled {
+    background: var(--primary);
+    padding: 10px 80px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-links li {
+    position: relative;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: white;
+}
+
+.nav-links li a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* underline */
+.nav-links li::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-links li:hover {
+    color: var(--accent);
+}
+
+.nav-links li:hover::after {
+    width: 100%;
+}
+
+/* ===============================
+   4. DROPDOWN MENU
+================================ */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 200px;
+    background: var(--primary);
+    border-radius: 8px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: 0.3s ease;
+    margin-top: 12px;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    font-size: 0.85rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-content a:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+/* ===============================
+   5. HERO SECTION
+================================ */
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    background: linear-gradient(to bottom,
+            rgba(15, 23, 42, 0.6),
+            rgba(30, 58, 138, 0.7));
+    height: 100%;
+}
+
+/* ===============================
+   6. TITLE SECTION
+================================ */
+.college-title {
+    text-align: center;
+    padding: 50px 10px;
+}
+
+.college-title h1 {
+    color: var(--primary);
+    font-size: 2.2rem;
+}
+
+.institute-code {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.orange-divider {
+    height: 60px;
+    background-color: var(--accent);
+    clip-path: ellipse(70% 100% at 50% 0%);
+}
+
+/* ===============================
+   7. CONTENT WRAPPER
+================================ */
+.content-wrapper {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* Announcements */
+.announcements h2 {
+    text-align: center;
+    border-bottom: 3px solid var(--accent);
+    width: fit-content;
+    margin: 0 auto 30px;
+    padding-bottom: 10px;
+    color: var(--primary);
+}
+
+.announcement-box {
+    background: var(--white);
+    border-left: 6px solid var(--secondary);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.announcement-box li {
+    list-style: none;
+    margin-bottom: 12px;
+    color: #b91c1c;
+    padding-left: 20px;
+    position: relative;
+}
+
+.announcement-box li::before {
+    content: "➤";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+/* ===============================
+   8. BUTTON GRID
+================================ */
+.button-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.button-grid button {
+    border: 2px solid var(--primary);
+    background: transparent;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--primary);
+    transition: 0.3s;
+}
+
+.button-grid button:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+}
+
+/* ===============================
+   9. WHY CHOOSE US
+================================ */
+.tech-grid-section {
+    position: relative;
+    width: 100%;
+    min-height: 650px;
+    background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+    display: flex;
+    align-items: center;
+    padding: 80px 5%;
+}
+
+#particles-js {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.container-overlay {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 50px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.text-side h2 {
+    font-size: 2.8rem;
+    color: var(--primary);
+}
+
+.text-side span {
+    color: var(--accent);
+}
+
+.cards-side {
+    flex: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.tech-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    transition: 0.4s;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.tech-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(30, 58, 138, 0.25);
+}
+
+/* ===============================
+   10. LEADERSHIP
+================================ */
+.leadership-section {
+    padding: 100px 0;
+    background: #f1f5f9;
+    text-align: center;
+}
+
+.chairman-card {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    display: flex;
+    align-items: center;
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 60px;
+    border-radius: 30px;
+    text-align: left;
+}
+
+.chairman-info {
+    flex: 2;
+    padding-right: 50px;
+}
+
+.chairman-image img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 8px solid rgba(255, 255, 255, 0.2);
+    object-fit: cover;
+}
+
+/* ===============================
+   11. FOOTER
+================================ */
+.site-footer {
+    background-color: var(--footer-dark);
+    color: #cbd5e1;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 4px solid var(--accent);
+}
+
+/* ===============================
+   12. RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+
+    .top-nav {
+        padding: 15px 30px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .container-overlay,
+    .chairman-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cards-side {
+        grid-template-columns: 1fr;
+    }
+
+    .chairman-info {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+}
