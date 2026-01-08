@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Admission Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../CSS/Admission.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1><i class="fas fa-user-graduate"></i> College Admission Form</h1>
+
+  <form id="admissionForm">
+
+    <div class="row">
+      <div class="field">
+        <label>Full Name</label>
+        <input type="text" id="name" >
+      </div>
+
+      <div class="field">
+        <label>Date of Birth</label>
+        <input type="date" id="dob" >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Email</label>
+        <input type="email" id="email" >
+      </div>
+
+      <div class="field">
+        <label>Mobile Number</label>
+        <input type="tel" id="mobile" maxlength="10" >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Gender</label>
+        <select id="gender" >
+          <option value="">Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Course Applied</label>
+        <select id="course" >
+          <option value="">Select Course</option>
+          <option>BCA</option>
+          <option>BSc</option>
+          <option>BCom</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Address</label>
+        <textarea id="address" rows="3" ></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Previous Qualification</label>
+        <input type="text" id="qualification" >
+      </div>
+
+      <div class="field">
+        <label>Percentage</label>
+        <input type="number" id="percentage" >
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      Submit Admission
+    </button>
+
+  </form>
+
+  <!-- Output -->
+  <div id="resultBox" class="result-box" style="display:none;">
+    <h2>Admission Submitted Successfully ✅</h2>
+    <p><strong>Name:</strong> <span id="outName"></span></p>
+    <p><strong>Course:</strong> <span id="outCourse"></span></p>
+    <p><strong>Email:</strong> <span id="outEmail"></span></p>
+    <p><strong>Status:</strong> Application Received</p>
+  </div>
+
+</div>
+
+<script src="../JavaScript/Addmission.js"></script>
+</body>
+</html>

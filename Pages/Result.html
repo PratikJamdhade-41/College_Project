@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Result</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../CSS/Result.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1><i class="fas fa-chart-bar"></i> Student Result</h1>
+
+  <div class="filters">
+    <input type="text" id="rollInput" placeholder="Enter Roll Number">
+
+    <select id="courseSelect">
+      <option value="">Select Course</option>
+      <option value="BCA">BCA</option>
+      <option value="BSc">B.Sc</option>
+      <option value="BCom">B.Com</option>
+    </select>
+
+    <select id="semesterSelect">
+      <option value="">Select Semester</option>
+      <option value="1">Semester 1</option>
+      <option value="2">Semester 2</option>
+      <option value="3">Semester 3</option>
+      <option value="4">Semester 4</option>
+      <option value="5">Semester 5</option>
+      <option value="6">Semester 6</option>
+    </select>
+
+    <button onclick="showResult()">View Result</button>
+  </div>
+
+  <div id="resultBox" class="result-box" style="display:none;">
+    <h2>Result Details</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Marks</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="resultBody"></tbody>
+    </table>
+
+    <div class="summary">
+      <p><strong>Total Marks:</strong> <span id="totalMarks">0</span></p>
+      <p><strong>Result:</strong> <span id="finalResult"></span></p>
+    </div>
+  </div>
+
+</div>
+
+<script src="../JavaScript/Result.js"></script>
+</body>
+</html>

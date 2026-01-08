@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Student Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../CSS/Result.css">
+  <link rel="stylesheet" href="../css/StudentDash.css">
+</head>
+
+<body>
+
+  <!-- TOP NAVBAR -->
+  <header class="topbar">
+    <h2><i class="fas fa-graduation-cap"></i> Student Dashboard</h2>
+    <button class="logout-btn" onclick="logout()">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </button>
+  </header>
+
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h3>Menu</h3>
+      <ul>
+        <li onclick="showSection('profile')"><i class="fas fa-user"></i> Profile</li>
+        <li onclick="showSection('attendance')"><i class="fas fa-calendar-check"></i> Attendance</li>
+        <li onclick="showSection('exam')"><i class="fas fa-file-alt"></i> Exam Schedule</li>
+        <li onclick="showSection('result')"><i class="fas fa-chart-bar"></i> Results</li>
+        <li onclick="showSection('notice')"><i class="fas fa-bell"></i> Notices</li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+      <!-- PROFILE -->
+      <section id="profile" class="page active">
+        <h3>Student Profile</h3>
+        <div class="card">
+          <p><b>Name:</b> Demo Student</p>
+          <p><b>Roll No:</b> BCA101</p>
+          <p><b>Department:</b> BCA</p>
+          <p><b>Semester:</b> 3</p>
+        </div>
+      </section>
+
+      <!-- ATTENDANCE -->
+      <section id="attendance" class="page">
+        <h3>Attendance</h3>
+        <div class="card">
+          <table>
+            <tr>
+              <th>Subject</th>
+              <th>Total Classes</th>
+              <th>Present</th>
+              <th>%</th>
+            </tr>
+            <tr>
+              <td>Programming</td>
+              <td>40</td>
+              <td>34</td>
+              <td>85%</td>
+            </tr>
+            <tr>
+              <td>DBMS</td>
+              <td>38</td>
+              <td>30</td>
+              <td>79%</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- EXAM -->
+      <section id="exam" class="page">
+        <h3>Exam Schedule</h3>
+        <div class="card">
+          <ul>
+            <li>01 Apr 2025 – Programming in C</li>
+            <li>04 Apr 2025 – DBMS</li>
+            <li>07 Apr 2025 – Operating System</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- RESULT -->
+      <section id="result" class="page">
+
+        <h1><i class="fas fa-chart-bar"></i> Student Result</h1>
+
+        <div class="filters">
+          <input type="text" id="rollInput" placeholder="Enter Roll Number">
+
+          <select id="courseSelect">
+            <option value="">Select Course</option>
+            <option value="BCA">BCA</option>
+            <option value="BSc">B.Sc</option>
+            <option value="BCom">B.Com</option>
+          </select>
+
+          <select id="semesterSelect">
+            <option value="">Select Semester</option>
+            <option value="1">Semester 1</option>
+            <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
+            <option value="5">Semester 5</option>
+            <option value="6">Semester 6</option>
+          </select>
+
+          <button onclick="showResult()">View Result</button>
+        </div>
+
+        <div id="resultBox" class="result-box" style="display:none;">
+          <h2>Result Details</h2>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="resultBody"></tbody>
+          </table>
+
+          <div class="summary">
+            <p><strong>Total Marks:</strong> <span id="totalMarks">0</span></p>
+            <p><strong>Result:</strong> <span id="finalResult"></span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOTICE -->
+      <section id="notice" class="page">
+        <h3>Notices</h3>
+        <div class="card">
+          <ul>
+            <li>📢 Internal exam starts from next week.</li>
+            <li>📢 Submit assignments before Friday.</li>
+            <li>📢 Practical exam timetable released.</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="../JavaScript/StudentDash.js"></script>
+  <script src="../JavaScript/Result.js"></script>
+</body>
+
+</html>

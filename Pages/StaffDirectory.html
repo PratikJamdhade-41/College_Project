@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Staff Directory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../CSS/StaffDirectory.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1><i class="fas fa-users"></i> Staff Directory</h1>
+
+  <!-- Controls -->
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Search by name or ID..." onkeyup="searchStaff()">
+
+    <select id="departmentFilter" onchange="filterDepartment()">
+      <option value="all">All Departments</option>
+      <option value="IT">IT</option>
+      <option value="BCA">BCA</option>
+      <option value="CS">Computer Science</option>
+    </select>
+  </div>
+
+  <!-- Staff Table -->
+  <table id="staffTable">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Designation</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+
+    <tbody id="staffBody">
+      <!-- Data inserted by JS -->
+    </tbody>
+  </table>
+
+</div>
+
+<script src="../JavaScript/StaffDirectory.js"></script>
+</body>
+</html>
